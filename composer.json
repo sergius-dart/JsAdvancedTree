@@ -1,0 +1,27 @@
+{
+    "name": "Developers/JsAdvancedTree,
+    "description": "An enhanced tree management module with tree node selection and manipulation using nested sets.",
+    "keywords": [
+        "bootstrap",
+        "tree",
+        "treeview",
+        "hierarchy",
+        "ajax",
+        "jquery"
+    ],
+    "homepage": "http://git.hq.int-sys.ru/Developers/JsAdvancedTree",
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Сергей Туровский",
+            "email": "sergius-dart@yandex.ru",
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+    },
+    "extra": {
+    }
+}
