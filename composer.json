@@ -1,5 +1,5 @@
 {
-    "name": "Developers/JsAdvancedTree,
+    "name":"Developers/JsAdvancedTree",
     "description": "An enhanced tree management module with tree node selection and manipulation using nested sets.",
     "keywords": [
         "bootstrap",
@@ -15,7 +15,7 @@
     "authors": [
         {
             "name": "Сергей Туровский",
-            "email": "sergius-dart@yandex.ru",
+            "email": "sergius-dart@yandex.ru"
         }
     ],
     "require": {
