@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\Pjax;
+use sergiusdart\JsAdvancedTree\JsTreeAsset;
+JsTreeAsset::register($this);
 ?>
 
 <DIV class="col-sm-4">

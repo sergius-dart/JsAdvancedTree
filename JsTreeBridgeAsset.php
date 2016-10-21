@@ -11,7 +11,7 @@ use yii\web\AssetBundle;
 
 class JsTreeBridgeAsset extends AssetBundle
 {
-    public $sourcePath = '@app/widgets/TreeView/assets';
+    //public $sourcePath = '/assets';
     public $css = [
     ];
     public $js = [

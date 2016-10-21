@@ -11,7 +11,7 @@ use yii\web\AssetBundle;
 
 class JsTreeAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/jstree';
+    public $sourcePath = __DIR__;
     public $js = [
         'dist/jstree.min.js',
     ];
@@ -20,6 +20,6 @@ class JsTreeAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\JqueryAsset',
-        'app\widgets\TreeView\JsTreeBridgeAsset'
+        'sergiusdart\JsAdvancedTree\JsTreeBridgeAsset'
     ];
 }
