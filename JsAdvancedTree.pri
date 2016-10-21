@@ -6,4 +6,5 @@ DISTFILES += \
     $$PWD/JsTreeControllerTrait.php \
     $$PWD/ImplementationException.php \
     $$PWD/README.md \
-    $$PWD/assets/js/easytree.js
+    $$PWD/assets/js/easytree.js \
+    $$PWD/views/widget.php

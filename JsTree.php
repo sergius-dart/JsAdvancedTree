@@ -111,7 +111,7 @@ class JsTree extends Widget
 
     public function init() {
         parent::init();
-        $this->registerAssets();
+        //$this->registerAssets();
         
         if (empty($this->jstreeDiv)) 
             $this->jstreeDiv  = "#jstree";
@@ -188,7 +188,8 @@ class JsTree extends Widget
     }
 
     public function run() {
-        parent::run();
+        //parent::run();
+        return $this->render('widget');
     }
 
     /**
