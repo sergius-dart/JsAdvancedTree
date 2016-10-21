@@ -19,6 +19,8 @@
         }
     ],
     "require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/jstree": "*"
     },
     "autoload": {
         "psr-4": {
