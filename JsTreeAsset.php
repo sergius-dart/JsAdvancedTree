@@ -11,12 +11,12 @@ use yii\web\AssetBundle;
 
 class JsTreeAsset extends AssetBundle
 {
-    public $sourcePath = __DIR__ . '/assets';
+    public $sourcePath = '@bower/jstree';
     public $js = [
-        'dist/jstree.min.js',
+        'dist/jstree.js',
     ];
     public $css = [
-        'dist/themes/default/style.min.css',
+        'dist/themes/default/style.css',
     ];
     public $depends = [
         'yii\web\JqueryAsset',
