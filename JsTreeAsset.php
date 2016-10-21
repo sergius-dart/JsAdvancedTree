@@ -6,7 +6,7 @@
  * @see http://jstree.com
  */
 
-namespace app\widgets\TreeView;
+namespace sergiusdart\JsAdvancedTree;
 use yii\web\AssetBundle;
 
 class JsTreeAsset extends AssetBundle

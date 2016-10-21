@@ -8,15 +8,15 @@
  * @since 1.0
  * @see http://jstree.com
  */
-
-namespace app\widgets\TreeView;
+ 
+namespace sergiusdart\JsAdvancedTree;
 
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\bootstrap\Widget;
 use yii\web\View;
-use app\widgets\TreeView\JsTreeAsset;
+use sergiusdart\JsAdvancedTree\JsTreeAsset;
 
 class JsTree extends Widget
 {

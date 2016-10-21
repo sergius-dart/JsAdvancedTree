@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace app\widgets\TreeView;
+namespace sergiusdart\JsAdvancedTree;
 
 use yii\web\AssetBundle;
 

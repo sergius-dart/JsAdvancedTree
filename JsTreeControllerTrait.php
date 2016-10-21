@@ -8,14 +8,14 @@
  * @since 1.0
  */
 
-namespace app\widgets\TreeView;
+namespace sergiusdart\JsAdvancedTree;
 
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\bootstrap\Widget;
 use yii\web\View;
-use app\widgets\TreeView\JsTreeAsset;
+use sergiusdart\JsAdvancedTree\JsTreeAsset;
 use yii\db\Expression;
 
 trait JsTreeControllerTrait
