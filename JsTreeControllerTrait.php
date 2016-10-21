@@ -34,6 +34,9 @@ trait JsTreeControllerTrait
 
     public function actionTree($id = null)
     {
+        //lol hack
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        
         if (!$this->isFullInitStaticVariables())
             return null;
         
@@ -46,8 +49,7 @@ trait JsTreeControllerTrait
         if ( isset(static::$tree_sortName ) )
             $find = $find->orderBy( static::$tree_sortName );
 
-        //lol hack
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        
         $result = $find->all();
 
         $arrResult = [];
@@ -75,10 +77,10 @@ trait JsTreeControllerTrait
     
     public function actionTreeAddNode($parentId)
     {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;  
+        
         if (!$this->isFullInitStaticVariables())
             return null;
-            
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;    
         
         if ( !method_exists(static::$tree_modelName,'treeAddNode') ||
             !is_callable( [static::$tree_modelName,'treeAddNode'] ) )
@@ -89,14 +91,14 @@ trait JsTreeControllerTrait
         
     public function actionTreeDelNode($id)
     {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        
         if (!$this->isFullInitStaticVariables())
             return null;
         
         if ( !method_exists(static::$tree_modelName,'treeDelNode') ||
             !is_callable( [static::$tree_modelName,'treeDelNode'] ) )
             throw ImplementationException('Not found '.static::$tree_modelName.'::treeDelNode($id)');
-        
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;    
         
         return ['success'=>static::$tree_parentIdName::treeDelNode($id)];
     }

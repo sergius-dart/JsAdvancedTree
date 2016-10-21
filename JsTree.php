@@ -20,7 +20,7 @@ use sergiusdart\JsAdvancedTree\JsTreeAsset;
 
 class JsTree extends Widget
 {
-    public $translation = 'app';
+    public $translation = 'JsAdvancedTree';
     public $menu = [];
     // Basic Settings Model/Column Names
 
