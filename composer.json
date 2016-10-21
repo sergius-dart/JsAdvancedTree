@@ -21,6 +21,9 @@
     "require": {
     },
     "autoload": {
+        "psr-4": {
+            "sergiusdart\\JsAdvancedTree\\": ""
+        }
     },
     "extra": {
     }
