@@ -11,7 +11,7 @@ use yii\web\AssetBundle;
 
 class JsTreeAsset extends AssetBundle
 {
-    public $sourcePath = __DIR__;
+    public $sourcePath = __DIR__ . '/assets';
     public $js = [
         'dist/jstree.min.js',
     ];
