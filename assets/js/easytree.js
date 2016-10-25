@@ -20,7 +20,7 @@ if (typeof jsonurl === 'undefined') {
                         "icons": jstreeicons
                     },
                     'data': {
-                        'url' : controller + "/" + 'tree',
+                        'url' : base_url + 'tree',
                         'data' : function (node) {return {id:node.id};}
                     }
                 },
@@ -40,7 +40,11 @@ if (typeof jsonurl === 'undefined') {
                                     // location.href = base_url +'/update?id=' + obj.id.replace("id", "");
                                     $.ajax({
                                         type: "GET",
-                                        url: base_url + '/update?id=' + obj.id.replace("id", ""),
+                                        url: base_url + '/update'  ,
+                                        data:{
+                                           id:obj.id.replace("id", "")
+                                       },
+
                                         success: function (data, textStatus) {
                                             $(".result").html(data);
                                         },
@@ -137,11 +141,7 @@ if (typeof jsonurl === 'undefined') {
                     url: base_url+ "tree-add-node",
                     dataType: "json",
                     data: {
-                        "easytree": "create",
-                        "id": data.node.id.replace("id", ""),
-                        "position": data.position,
-                        "type": data.node.type,
-                        "parent": data.parent.replace("id", ""),
+                        "parentId": data.parent.replace("id", ""),
                     },
                     success: function (r) {
                         if (r.status) {

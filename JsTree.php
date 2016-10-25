@@ -111,7 +111,7 @@ class JsTree extends Widget
 
     public function init() {
         parent::init();
-        //$this->registerAssets();
+        $this->registerAssets();
         
         if (empty($this->jstreeDiv)) 
             $this->jstreeDiv  = "#jstree";
@@ -154,8 +154,8 @@ class JsTree extends Widget
         this.intsys.TreeView.menu = ".json_encode($this-> prepareMenu() ).";", View::POS_HEAD );
 
         // Use with ActiveRecord Model and all Actions 
-        if ($this->modelName) {
-
+//        if ($this->modelName) {
+        //only activerecord version
             $this->controllerId = Yii::$app->controller->id;
             if (empty($this->baseAction))
                 $this->baseAction = "index";
@@ -165,7 +165,9 @@ class JsTree extends Widget
 
             $this->getView()->registerJs("var controller = '" . $this->controllerId . "';", View::POS_HEAD);
             $this->getView()->registerJs("var index_action = '" . $this->baseAction . "';", View::POS_HEAD);
-
+                
+            //show move to model
+            /*
             if (empty($this->modelPropertyName))
                 $this->modelPropertyName = "name";
 
@@ -180,11 +182,11 @@ class JsTree extends Widget
 
             if (empty($this->modelStandardName))
                 $this->modelStandardName = "Neuer Eintrag";
-            
+            */
             // Only Display Tree with loading Data via JSON URL    
-        } else {
-            $this->getView()->registerJs("var jsonurl = '" . $this->jsonUrl . "';", View::POS_HEAD);
-        }
+ //       } else {
+ //           $this->getView()->registerJs("var jsonurl = '" . $this->jsonUrl . "';", View::POS_HEAD);
+ //       }
     }
 
     public function run() {

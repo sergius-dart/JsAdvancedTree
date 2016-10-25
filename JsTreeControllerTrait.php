@@ -43,8 +43,6 @@ trait JsTreeControllerTrait
         if ( $id == '#' )
             $id = null;
         
-        $parentIf = 'IF( ISNULL( `'.static::$tree_parentIdName.'` ), "#", `'.static::$tree_parentIdName.'`  )';
-
         $find = static::$tree_modelName::findTreeChildren($id);
         if ( isset(static::$tree_sortName ) )
             $find = $find->orderBy( static::$tree_sortName );
@@ -84,9 +82,9 @@ trait JsTreeControllerTrait
         
         if ( !method_exists(static::$tree_modelName,'treeAddNode') ||
             !is_callable( [static::$tree_modelName,'treeAddNode'] ) )
-            throw ImplementationException('Not found '.static::$tree_modelName.'::treeAddNode($id)');
+            throw new ImplementationException('Not found '.static::$tree_modelName.'::treeAddNode($id)');
         
-        return ['success'=>static::$tree_parentIdName::treeAddNode($parentId)];
+        return ['success'=>static::$tree_modelName::treeAddNode($parentId)]; //return new ID
     }
         
     public function actionTreeDelNode($id)
@@ -98,9 +96,10 @@ trait JsTreeControllerTrait
         
         if ( !method_exists(static::$tree_modelName,'treeDelNode') ||
             !is_callable( [static::$tree_modelName,'treeDelNode'] ) )
-            throw ImplementationException('Not found '.static::$tree_modelName.'::treeDelNode($id)');
+            throw new ImplementationException('Not found '.static::$tree_modelName.'::treeDelNode($id)');
         
-        return ['success'=>static::$tree_parentIdName::treeDelNode($id)];
+        $id = static::$tree_modelName::treeDelNode($id);
+        return ['success'=>is_null($id), 'id'=>$id];
     }
 
     private function isFullInitStaticVariables()
