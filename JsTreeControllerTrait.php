@@ -84,7 +84,11 @@ trait JsTreeControllerTrait
             !is_callable( [static::$tree_modelName,'treeAddNode'] ) )
             throw new ImplementationException('Not found '.static::$tree_modelName.'::treeAddNode($id)');
         
-        return ['success'=>static::$tree_modelName::treeAddNode($parentId)]; //return new ID
+        $id = static::$tree_modelName::treeAddNode($parentId);
+        return [
+            'success'=>!is_null($id),
+            static::$tree_modelName::treeAddNode($parentId)
+        ]; //return new ID
     }
         
     public function actionTreeDelNode($id)
@@ -98,8 +102,11 @@ trait JsTreeControllerTrait
             !is_callable( [static::$tree_modelName,'treeDelNode'] ) )
             throw new ImplementationException('Not found '.static::$tree_modelName.'::treeDelNode($id)');
         
-        $id = static::$tree_modelName::treeDelNode($id);
-        return ['success'=>is_null($id), 'id'=>$id];
+        $parentId = static::$tree_modelName::treeDelNode($id);
+        return [
+            'success'=>!is_null($parentId), 
+            'id'=>$parentId
+        ];
     }
 
     private function isFullInitStaticVariables()

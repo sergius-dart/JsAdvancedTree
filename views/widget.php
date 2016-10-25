@@ -12,6 +12,7 @@ JsTreeAsset::register($this);
                 <SPAN class="h4"> <?= Yii::t('app','Tree') ?> </SPAN>
                 <div id="TreeAddButton"  class="btn glyphicon glyphicon-plus pull-right" style="margin-top:-5px"></div>
                 <div id="TreeCopyButton" class="btn glyphicon glyphicon-copy pull-right" style="margin-top:-5px"></div>
+                <div id="TreeDelButton" class="btn glyphicon glyphicon-remove pull-right" style="margin-top:-5px"></div>
             </div>
         </div>
         <div class="table">
