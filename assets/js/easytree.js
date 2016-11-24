@@ -146,6 +146,7 @@ if (typeof jsonurl === 'undefined') {
                     success: function (r) {
                         if (r.status) {
                             data.instance.set_id(data.node.id, r.id);
+                            data.instance.set_text(r.id, r.text);
                             data.instance.deselect_all();
                             data.instance.select_node(r.id);
                         } else {

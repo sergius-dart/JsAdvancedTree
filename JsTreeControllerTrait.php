@@ -85,9 +85,11 @@ trait JsTreeControllerTrait
             throw new ImplementationException('Not found '.static::$tree_modelName.'::treeAddNode($id)');
         
         $id = static::$tree_modelName::treeAddNode($parentId);
+        $nameText = static::$tree_textName;
         return [
             'status'=>!is_null($id),
-            'id'=>static::$tree_modelName::treeAddNode($parentId)
+            'id'=>$id,
+            'text'=>static::$tree_modelName::findOne($id)->$nameText,
         ]; //return new ID
     }
         
