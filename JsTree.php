@@ -22,6 +22,10 @@ class JsTree extends Widget
 {
     public $translation = 'JsAdvancedTree';
     public $menu = [];
+    public $tree = [
+        'labelTree'=>'Tree',
+        'labelDetail'=>'Detail',
+    ];
     // Basic Settings Model/Column Names
 
     /*

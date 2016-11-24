@@ -53,7 +53,7 @@ trait JsTreeControllerTrait
         $arrResult = [];
         foreach($result as $model )
         {
-            //precashe static variables
+            //precache static variables
             $tree_idName = static::$tree_idName;
             $tree_childrenCountName = static::$tree_childrenCountName;
             $tree_textName = static::$tree_textName;
@@ -86,8 +86,8 @@ trait JsTreeControllerTrait
         
         $id = static::$tree_modelName::treeAddNode($parentId);
         return [
-            'success'=>!is_null($id),
-            static::$tree_modelName::treeAddNode($parentId)
+            'status'=>!is_null($id),
+            'id'=>static::$tree_modelName::treeAddNode($parentId)
         ]; //return new ID
     }
         
@@ -104,7 +104,7 @@ trait JsTreeControllerTrait
         
         $parentId = static::$tree_modelName::treeDelNode($id);
         return [
-            'success'=>!is_null($parentId), 
+            'status'=>!is_null($parentId), 
             'id'=>$parentId
         ];
     }

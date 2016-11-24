@@ -11,7 +11,7 @@ if (typeof jsonurl === 'undefined') {
     
     function initTree(){
         //$.getJSON(jsonurl, function (jsdata) {
-            $(jstreediv).jstree({
+            var tree = $(jstreediv).jstree({
                 "core": {
                     "animation": 0,
                     "check_callback": true,
@@ -145,7 +145,9 @@ if (typeof jsonurl === 'undefined') {
                     },
                     success: function (r) {
                         if (r.status) {
-                            data.instance.set_id(data.node.id, r.id)
+                            data.instance.set_id(data.node.id, r.id);
+                            data.instance.deselect_all();
+                            data.instance.select_node(r.id);
                         } else {
                             // rollback v3 ??
                             // $.jstree.rollback(data.rlbk);
@@ -213,7 +215,6 @@ if (typeof jsonurl === 'undefined') {
             }
             sel = sel[0];
             sel = ref.create_node(sel, {"type": "menue"});
-            ref.select_node(sel);
         });
         
         $('#TreeCopyButton').click(function(){
@@ -224,8 +225,8 @@ if (typeof jsonurl === 'undefined') {
                 return false;
             }
             sel = sel[0];
-            sel = ref.create_node(sel, {"type": "menue"});
-            ref.select_node(sel);
+            var node = ref.get_node(sel);
+            sel = ref.create_node(node.parent, {"type": "menue"});
         });
         
         $('#TreeDelButton').click(function(){
