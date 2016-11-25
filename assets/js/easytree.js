@@ -206,6 +206,8 @@ if (typeof jsonurl === 'undefined') {
                     }
                 })
             }).on('loaded.jstree', function(e,data){
+                if ( !intsys.TreeView.load_id.load_id )
+                    return;
                 var treeObj = data.instance;
                 
                 var i = 0;
