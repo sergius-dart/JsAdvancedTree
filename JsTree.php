@@ -26,6 +26,7 @@ class JsTree extends Widget
     public $tree = [
         'labelTree'=>'Tree',
         'labelDetail'=>'Detail',
+        'load_id'=>null,
     ];
     // Basic Settings Model/Column Names
 
@@ -144,14 +145,14 @@ class JsTree extends Widget
             ];
         }
         //var_dump($this->view);
-        $parentsObj = $this->view->context::$tree_modelName::findParents($this->tree['load_id']);
+        $parentsObj = $this->view->context::$tree_modelName::findParents(isset($this->tree['load_id']) ? $this->tree['load_id'] : null );
         $parentIdName = $this->view->context::$tree_parentIdName;
         $parents = [];
         foreach( $parentsObj as $_parent )
             if (!is_null($_parent->$parentIdName))
                 $parents []= $_parent->$parentIdName;
         
-        $contextId =['load_id'=> $this->tree['load_id'],'parents'=>$parents ];
+        $contextId =['load_id'=> isset($this->tree['load_id']) ? $this->tree['load_id'] : null,'parents'=>$parents ];
         //$contextId = 1;
         $this->getView()->registerJs("var jstreediv = '" . $this->jstreeDiv . "';", View::POS_HEAD);
         $this->getView()->registerJs("var jstreetype = " . Json::encode($this->jstreeType) . ";", View::POS_HEAD);
