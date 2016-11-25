@@ -205,6 +205,23 @@ if (typeof jsonurl === 'undefined') {
                         // alert('Error loading Page!');
                     }
                 })
+            }).on('loaded.jstree', function(e,data){
+                var treeObj = data.instance;
+                
+                var i = 0;
+                
+                function nextLoader()
+                {
+                    var callback = (i < intsys.TreeView.load_id.parents - 1) ?nextLoader : lastLoader;
+                    treeObj.load_node(intsys.TreeView.load_id.parents[++i], callback);
+                }
+                
+                function lastLoader()
+                {
+                    treeObj.select_node( intsys.TreeView.load_id.load_id  );
+                }
+                treeObj.clear_state();
+                treeObj.load_node(intsys.TreeView.load_id.parents[i], nextLoader );                
             });
         //});
         $('#TreeAddButton').click(function(){
@@ -244,6 +261,10 @@ if (typeof jsonurl === 'undefined') {
                 //trigger error!
             }
         });
+        if ( intsys.TreeView.load_id )
+        {
+            
+        }
     }
     $(document).ready(initTree);
     

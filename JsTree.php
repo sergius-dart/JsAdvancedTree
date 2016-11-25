@@ -16,6 +16,7 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\bootstrap\Widget;
 use yii\web\View;
+use yii\helpers\ArrayHelper;
 use sergiusdart\JsAdvancedTree\JsTreeAsset;
 
 class JsTree extends Widget
@@ -142,7 +143,16 @@ class JsTree extends Widget
                 ],
             ];
         }
+        //var_dump($this->view);
+        $parentsObj = $this->view->context::$tree_modelName::findParents($this->tree['load_id']);
+        $parentIdName = $this->view->context::$tree_parentIdName;
+        $parents = [];
+        foreach( $parentsObj as $_parent )
+            if (!is_null($_parent->$parentIdName))
+                $parents []= $_parent->$parentIdName;
         
+        $contextId =['load_id'=> $this->tree['load_id'],'parents'=>$parents ];
+        //$contextId = 1;
         $this->getView()->registerJs("var jstreediv = '" . $this->jstreeDiv . "';", View::POS_HEAD);
         $this->getView()->registerJs("var jstreetype = " . Json::encode($this->jstreeType) . ";", View::POS_HEAD);
         $this->getView()->registerJs("var jstreeplugins = " . Json::encode($this->jstreePlugins) . ";", View::POS_HEAD);
@@ -155,7 +165,8 @@ class JsTree extends Widget
             this.intsys.TreeView = {menu:{}};
         if ( typeof this.intsys.TreeView.menu == 'undefined' )
                 this.intsys.TreeView.menu = {items:{}};
-        this.intsys.TreeView.menu = ".json_encode($this-> prepareMenu() ).";", View::POS_HEAD );
+        this.intsys.TreeView.menu = ".json_encode($this-> prepareMenu() ).";
+        this.intsys.TreeView.load_id = ".json_encode($contextId)." ;", View::POS_HEAD );
 
         // Use with ActiveRecord Model and all Actions 
 //        if ($this->modelName) {
@@ -357,6 +368,7 @@ class JsTree extends Widget
             }
         return $this->menu;
     }
+
 
 }
 
