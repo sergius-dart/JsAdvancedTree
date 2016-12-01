@@ -9,12 +9,12 @@
         "ajax",
         "jquery"
     ],
-    "homepage": "http://git.hq.int-sys.ru/Developers/JsAdvancedTree",
+    "homepage": "http://github.ru/sergius-dart/JsAdvancedTree",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "Сергей Туровский",
+            "name": "sergius-dart",
             "email": "sergius-dart@yandex.ru"
         }
     ],
