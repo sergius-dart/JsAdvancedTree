@@ -226,8 +226,8 @@ if (typeof jsonurl === 'undefined') {
                 treeObj.load_node(intsys.TreeView.load_id.parents[i], nextLoader );                
             });
         //});
-        $('#TreeAddButton').click(function(){
-            console.log("Hello #TreeAddButton");
+        $('#TreeAddSubButton').click(function(){
+            console.log("Hello #TreeAddSubButton");
             var ref = $('#jstree').jstree();
             sel = ref.get_selected();
             if (!sel.length) {
@@ -235,6 +235,12 @@ if (typeof jsonurl === 'undefined') {
             }
             sel = sel[0];
             sel = ref.create_node(sel, {"type": "menue"});
+        });
+        
+        $('#TreeAddRootButton').click(function(){
+            console.log("Hello #TreeAddRootButton");
+            var ref = $('#jstree').jstree();
+            var sel = ref.create_node(null, {"type": "menue"});
         });
         
         $('#TreeCopyButton').click(function(){

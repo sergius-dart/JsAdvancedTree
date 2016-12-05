@@ -83,7 +83,10 @@ trait JsTreeControllerTrait
         if ( !method_exists(static::$tree_modelName,'treeAddNode') ||
             !is_callable( [static::$tree_modelName,'treeAddNode'] ) )
             throw new ImplementationException('Not found '.static::$tree_modelName.'::treeAddNode($id)');
-        
+
+        if ( $parentId == '#' ) 
+            $parentId = null;
+
         $id = static::$tree_modelName::treeAddNode($parentId);
         $nameText = static::$tree_textName;
         return [

@@ -10,9 +10,10 @@ JsTreeAsset::register($this);
         <div class="panel-heading" >
             <div class="panel-title">
                 <SPAN class="h4"> <?= $this->context->tree['labelTree'] ?> </SPAN>
-                <div id="TreeAddButton"  class="btn glyphicon glyphicon-plus pull-right" style="margin-top:-5px"></div>
-                <div id="TreeCopyButton" class="btn glyphicon glyphicon-copy pull-right" style="margin-top:-5px"></div>
-                <div id="TreeDelButton" class="btn glyphicon glyphicon-remove pull-right" style="margin-top:-5px"></div>
+                <?= Html::tag('div','', ['id'=>"TreeAddSubButton", 'class'=>"btn glyphicon glyphicon-plus pull-right", 'style'=>"margin-top:-5px", 'title'=>Yii::t('app','JsAdvancedTree::AddSub')]) ?>
+                <?= Html::tag('div','', ['id'=>"TreeCopyButton", 'class'=>"btn glyphicon glyphicon-copy pull-right", 'style'=>"margin-top:-5px",'title'=>Yii::t('app','JsAdvancedTree::Copy')]) ?>
+                <?= Html::tag('div','', ['id'=>"TreeAddRootButton", 'class'=>"btn glyphicon glyphicon-tree-conifer pull-right", 'style'=>"margin-top:-5px", 'title'=>Yii::t('app','JsAdvancedTree::AddRoot')]) ?>
+                <?= Html::tag('div','', ['id'=>"TreeDelButton", 'class'=>"btn glyphicon glyphicon-remove pull-right", 'style'=>"margin-top:-5px",'title'=>Yii::t('app','JsAdvancedTree::Remove')]) ?>
             </div>
         </div>
         <div class="table">
