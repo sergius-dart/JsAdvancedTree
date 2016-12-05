@@ -1,5 +1,5 @@
 {
-    "name":"sergius-dart/JsAdvancedTree",
+    "name":"sergius-dart/yii2-simple-jstree",
     "description": "An enhanced tree management module with tree node selection and manipulation using nested sets.",
     "keywords": [
         "bootstrap",
@@ -9,7 +9,7 @@
         "ajax",
         "jquery"
     ],
-    "homepage": "http://github.ru/sergius-dart/JsAdvancedTree",
+    "homepage": "http://github.ru/sergius-dart/yii2-simple-jstree",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [
