@@ -172,7 +172,7 @@ class JsTree extends Widget
         // Use with ActiveRecord Model and all Actions 
 //        if ($this->modelName) {
         //only activerecord version
-            $this->controllerId = Yii::$app->controller->id;
+            $this->controllerId = isset($this->controllerId) ? $this->controllerId : '/'.Yii::$app->controller->id;
             if (empty($this->baseAction))
                 $this->baseAction = "index";
 

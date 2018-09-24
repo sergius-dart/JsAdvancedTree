@@ -40,7 +40,7 @@ if (typeof jsonurl === 'undefined') {
                                     // location.href = base_url +'/update?id=' + obj.id.replace("id", "");
                                     $.ajax({
                                         type: "GET",
-                                        url: base_url + '/update'  ,
+                                        url: base_url + '/update-tree'  ,
                                         data:{
                                            id:obj.id.replace("id", "")
                                        },
@@ -176,7 +176,7 @@ if (typeof jsonurl === 'undefined') {
             }).on("select_node.jstree", function (e, data) {
                 $.ajax({
                     type: "GET",
-                    url: base_url + 'update?id=' + data.node.id.replace("id", ""),
+                    url: base_url + 'update-tree?id=' + data.node.id.replace("id", ""),
                     success: function (data, textStatus) {
                         $(".jstree-result").html(data);
                         if (typeof afterLoad === "function") {
