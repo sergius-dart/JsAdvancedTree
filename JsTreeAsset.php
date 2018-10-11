@@ -11,7 +11,7 @@ use yii\web\AssetBundle;
 
 class JsTreeAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/jstree';
+    public $sourcePath = '@vakata/jstree';
     public $js = [
         'dist/jstree.js',
     ];
