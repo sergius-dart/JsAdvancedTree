@@ -20,7 +20,7 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
-        "bower-asset/jstree": "*"
+        "vakata/jstree": "*"
     },
     "autoload": {
         "psr-4": {
